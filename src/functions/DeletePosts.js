@@ -8,9 +8,7 @@ const containerName = process.env['AZURE_COSMOSDB_CONTAINER_NAME'];
 
 app.timer('DeletePosts', {
     schedule: '0 0 * * * *',
-    handler: async (myTimer, context) => {
-        context.log('Timer function processed request.');
-        
+    handler: async () => {
         const client = new CosmosClient({ endpoint, key });
         const container = client.database(databaseName).container(containerName);
 
